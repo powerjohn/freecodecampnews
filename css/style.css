@@ -1,0 +1,30 @@
+body{
+	background-color: navajowhite;
+}
+
+.story{
+	margin: 2px 0px;
+	padding: 1em;
+	overflow: hidden;
+}
+
+
+.story:hover .description{
+	opacity: .75;
+}
+
+.description{
+ position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    background-color: #333;
+    transition: all 0.5s ease;
+    color: #fff;
+    padding: 1em;
+    font-size: 1.25em;
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>
+		
+	</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+	<meta charset = "utf-8">
+</head>
+<body>
+<h1 class="text-center">FreecodeCamp News</h1>
+<div class="container">
+	<div class="row"></div>
+</div>
+<script src="js/jquery-1.10.1.js"></script>
+	<script>
+	(function(){
+		hotStories=function(results){
+        
+       return $.ajax({
+        	url:"http://www.freecodecamp.com/news/hot",
+        	dataType: 'json',
+        	data: 'results'
+    }).promise();
+};
+
+var story=hotStories();
+story.then(function(results){
+    $.each(results, function(i, field){
+        $(".row").append("<div class=\"col-md-3 col-xs-6 text-center story\"><a href=\""+field['link']+"\"target=\"_blank\"><img src="+field['author']['picture']+" width=\"95%\" height=\"95%\"><br>"+field['headline'].substr(0, 20)+"... "+"<br> by - "+ field['author']['username']+"<br> LIKED "+field['rank']+"<span class=\"description\">"+field['headline']+"<br> Posted on "+ new Date(field['timePosted']).toLocaleString()+"</span></a></div>" );
+            console.log(i);
+            console.log(field);
+            });
+    
+});
+	})();
+	</script>
+
+</body>
+</html>
